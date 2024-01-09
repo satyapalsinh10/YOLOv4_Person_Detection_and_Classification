@@ -2,11 +2,17 @@
 import cv2
 import numpy as np
 from darknet import *
-from google.colab import files
 from IPython.display import HTML, display
 import io
 from base64 import b64encode
 import argparse
+from IPython.display import display, Javascript, Image
+from base64 import b64decode, b64encode
+import PIL
+import io
+import html
+import time
+import matplotlib.pyplot as plt
 
 # Function to perform object detection using YOLOv4
 def darknet_helper(img, width, height):
@@ -58,7 +64,7 @@ def track_objects(video_path, output_path):
 
                 middle_y = (top + bottom) // 2
                 if middle_y < height // 2:
-                    text_color = (0, 0, 255)  # Red color for the top half
+                    text_color = (0, 0, 255)
 
                     cv2.rectangle(frame, (left, top), (right, bottom), (255, 0, 0), 4)
                     cv2.putText(
@@ -71,7 +77,7 @@ def track_objects(video_path, output_path):
                         4,
                     )
                 else:
-                    text_color = (0, 0, 255)  # Black color for the bottom half
+                    text_color = (0, 0, 255) 
 
                     cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 4)
                     cv2.putText(
