@@ -10,11 +10,45 @@ This project demonstrates how to perform object detection using YOLOv4 with the 
    $ pip install requirements.txt
    ```
 
-2. Run using:
+2. Configure Darknet Makefile::
    ```
-   python detection.py --video_path /path/to/your/input_video.mp4 --output_path /path/to/your/output_video.mp4
+   # Change the Directory to darknet and edit the Makefile to enable GPU, OpenCV, and LIBSO:
+   cd /build/darknet/
+
+   sed -i 's/OPENCV=0/OPENCV=1/' Makefile
+   sed -i 's/GPU=0/GPU=1/' Makefile
+   sed -i 's/CUDNN=0/CUDNN=1/' Makefile
+   sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
+   sed -i 's/LIBSO=0/LIBSO=1/' Makefile
+
+3. Build Darknet:
+
+   ```
+   # Build Darknet using the following command:
+   make
+   ```
+
+4. Download YOLOv4 Weights:
+   ```
+   # Download the YOLOv4 weights file:
+   wget -O yolov4-csp.weights https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-csp.weights
     ```
-   
+
+5. Run Python Script:
+   ```
+   # Provide the path for the input video and the path to save the output video.
+   python detection.py --video_path /path/to/your/input_video.mp4 --output_path /path/to/your/output_video.mp4
+   ```
+
+
+## Results:
+
+The below results display the output video detecting the persons present at the NYC bus stop and also classify them based on which bus they plan to travel, based on their position on the bus stop. 
+<p align="center">
+  <img src="build/darknet/YOLO_v5.gif" alt="Undistorted" width="900"/>
+</p>
+
+
 ## Citation
 
   ```
