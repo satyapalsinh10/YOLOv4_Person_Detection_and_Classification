@@ -1,7 +1,9 @@
 # YOLOv4 - Person Detection and Segmentation
 
 ## Introduction
-This project demonstrates how to perform object detection using YOLOv4 with the Darknet framework. Implemented YOLO_v4 for efficient person detection and bounding box segmentation in the Queens and Brooklyn MTA bus system, optimizing operations through bus stand segmentation by bus number. Integrated person detection, labeling individuals with their intended bus. By skipping just 1% of stops, saving 39 days annually, the system drastically reduces costs, boosts efficiency, and enhances passenger experience.
+This project showcases the implementation of the YOLO_v4 architecture to efficiently detect and classify individuals at NYC MTA bus stops. It optimizes operations by incorporating bus stand segmentation based on bus numbers. Additionally, the project integrates person detection and classification by labeling individuals according to their intended bus for travel.
+
+This project aims to decrease the frequency of unnecessary stops for buses in the NYC area. Data analysis and surveys indicate that by eliminating just 1% of these unnecessary stops, we can annually save 39 days of time, resulting in significant cost reductions, improved efficiency, and an enhanced passenger experience.
 
 ## Installation
 1. Clone the repository:
@@ -15,29 +17,29 @@ This project demonstrates how to perform object detection using YOLOv4 with the 
    # Change the Directory to darknet and edit the Makefile to enable GPU, OpenCV, and LIBSO:
    cd /build/darknet/
 
-   sed -i 's/OPENCV=0/OPENCV=1/' Makefile
-   sed -i 's/GPU=0/GPU=1/' Makefile
-   sed -i 's/CUDNN=0/CUDNN=1/' Makefile
-   sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
-   sed -i 's/LIBSO=0/LIBSO=1/' Makefile
+   $ sed -i 's/OPENCV=0/OPENCV=1/' Makefile
+   $ sed -i 's/GPU=0/GPU=1/' Makefile
+   $ sed -i 's/CUDNN=0/CUDNN=1/' Makefile
+   $ sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
+   $ sed -i 's/LIBSO=0/LIBSO=1/' Makefile
 
 3. Build Darknet:
 
    ```
    # Build Darknet using the following command:
-   make
+   $ make
    ```
 
 4. Download YOLOv4 Weights:
    ```
    # Download the YOLOv4 weights file:
-   wget -O yolov4-csp.weights https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-csp.weights
+   $ wget -O yolov4-csp.weights https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-csp.weights
     ```
 
 5. Run Python Script:
    ```
    # Provide the path for the input video and the path to save the output video.
-   python detection.py --video_path /path/to/your/input_video.mp4 --output_path /path/to/your/output_video.mp4
+   $ python detection.py --video_path /path/to/your/input_video.mp4 --output_path /path/to/your/output_video.mp4
    ```
 
 
@@ -47,6 +49,14 @@ The below results display the output video detecting the persons present at the 
 <p align="center">
   <img src="build/darknet/YOLO_v5.gif" alt="Undistorted" width="900"/>
 </p>
+
+
+## References
+
+To train the network from scratch you can follow the github [link](https://github.com/AlexeyAB/darknet?tab=readme-ov-file) or configure the above file with the official darknet repository.
+
+
+
 
 
 ## Citation
