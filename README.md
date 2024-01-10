@@ -53,7 +53,7 @@ The below results display the output video detecting the persons present at the 
 
 ## References
 
-To train the network from scratch you can follow the github [link](https://github.com/AlexeyAB/darknet?tab=readme-ov-file) or configure the above file with the official darknet repository.
+To train the network on a custom dataset you can follow the github [link](https://github.com/AlexeyAB/darknet?tab=readme-ov-file) or configure the above file with the official darknet repository.
 
 
 
